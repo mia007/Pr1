@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Test10/src"/>
+	<classpathentry kind="src" path="Test11/src"/>
+	<classpathentry kind="src" path="Test2/src"/>
+	<classpathentry kind="src" path="Test3/src"/>
+	<classpathentry kind="src" path="Test4/src"/>
+	<classpathentry kind="lib" path="Test2/lib/mysql-connector-java-5.1.43-bin.jar"/>
+	<classpathentry kind="lib" path="Test3/lib/mysql-connector-java-5.1.43-bin.jar"/>
+	<classpathentry kind="lib" path="Test4/lib/mysql-connector-java-5.1.43-bin.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="Test10/bin"/>
+</classpath>
