@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Input XML document. This XML is valid against input.xsd XML schema -->
+
+<st3:Planes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:st3="http://nure.ua/mykytenko/SummaryTask3/entity"
+	xsi:schemaLocation="http://nure.ua/mykytenko/SummaryTask3/entity input.xsd">
+
+	<Plane>
+		<model>F-22</model>
+		<origin>USA</origin>
+		<chars>
+			<type>Fighter</type>
+			<seats>2</seats>
+			<ammunition rocket="10">true</ammunition>
+			<radar>true</radar>
+		</chars>
+		<parameters unit="metres">
+			<length>18</length>
+			<width>13</width>
+			<height>5</height>
+		</parameters>
+		<price unit="taller">1000000</price>
+	</Plane>
+
+	<Plane>
+		<model>U-2</model>
+		<origin>USA</origin>
+		<chars>
+			<type>Scout</type>
+			<seats>1</seats>
+			<radar>true</radar>
+		</chars>
+		<parameters unit="metres">
+			<length>19.2</length>
+			<width>31.4</width>
+			<height>4.9</height>
+		</parameters>
+		<price unit="taller">150000</price>
+	</Plane>
+
+	<Plane>
+		<model>AN-30</model>
+		<origin>USSR</origin>
+		<chars>
+			<type>Support</type>
+			<seats>2</seats>
+			<radar>true</radar>
+		</chars>
+		<parameters unit="metres">
+			<length>24.5</length>
+			<width>29.5</width>
+			<height>8.35</height>
+		</parameters>
+		<price unit="taller">500000</price>
+	</Plane>
+
+
+</st3:Planes>

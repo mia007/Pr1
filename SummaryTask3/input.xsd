@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://nure.ua/mykytenko/SummaryTask3/entity"
+	xmlns:tns="http://nure.ua/mykytenko/SummaryTask3/entity">
+
+		<xsd:element name="Planes">
+		<xsd:complexType>
+			<xsd:sequence>
+					<xsd:element name="Plane" type="tns:Plane" maxOccurs="unbounded"/>
+			</xsd:sequence>		
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:complexType name="Plane">
+		<xsd:sequence>
+			<xsd:element name="model" type="tns:model" />
+			<xsd:element name="origin" type="xsd:string" />
+			<xsd:element name="chars" type="tns:chars" />
+			<xsd:element name="parameters" type="tns:parameters" />
+			<xsd:element name="price" type="tns:price" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="model">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[A-Za-z]+-[0-9]+"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="chars">
+		<xsd:sequence>
+			<xsd:element name="type" type="tns:type" minOccurs="0" />
+			<xsd:element name="seats" type="tns:seats" minOccurs="0" />
+			<xsd:element name="ammunition" type="tns:ammunition" minOccurs="0" />
+			<xsd:element name="radar" type="xsd:boolean" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="seats">
+		<xsd:restriction base="xsd:byte">
+			<xsd:minInclusive value="1"/>
+		 	<xsd:maxInclusive value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="ammunition">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="rocket" type="tns:rocket"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="rocket">
+		<xsd:restriction base="xsd:byte">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="parameters">
+		<xsd:sequence>
+			<xsd:element name="length" type="xsd:double" />
+			<xsd:element name="width" type="xsd:double" />
+			<xsd:element name="height" type="xsd:double" />
+		</xsd:sequence>
+		<xsd:attribute name="unit" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:complexType name="price">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:double">
+				<xsd:attribute name="unit" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="type">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Support"/>
+			<xsd:enumeration value="Escort"/>
+			<xsd:enumeration value="Fighter"/>
+			<xsd:enumeration value="Interceptor"/>
+			<xsd:enumeration value="Scout"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
