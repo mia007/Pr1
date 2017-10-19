@@ -1,0 +1,61 @@
+package ua.nure.mykytenko.SummaryTask4.db.bean;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * Route bean.
+ * 
+ * @author A.Mykytenko
+ * 
+ */
+public class RouteBean implements Serializable {
+
+	private static final long serialVersionUID = 1810869342468387715L;
+
+	private String trainTag;
+
+	private String stationName;
+
+	private Date arrTime;
+
+	private Date depTime;
+
+	public String getStationName() {
+		return stationName;
+	}
+
+	public void setStationName(String stationName) {
+		this.stationName = stationName;
+	}
+
+	public Date getDepTime() {
+		return depTime == null ? null : (Date) depTime.clone();
+	}
+
+	public void setDepTime(Date depDate) {
+		this.depTime = depDate != null ? (Date) depDate.clone() : depDate;
+	}
+
+	public Date getArrTime() {
+		return arrTime == null ? null : (Date) arrTime.clone();
+	}
+
+	public void setArrTime(Date arrDate) {
+		this.arrTime = arrDate != null ? (Date) arrDate.clone() : arrDate;
+	}
+
+	public String getTrainTag() {
+		return trainTag;
+	}
+
+	public void setTrainTag(String trainTag) {
+		this.trainTag = trainTag;
+	}
+
+	@Override
+	public String toString() {
+		return "RouteInfoBean [stationName=" + stationName + ", arrTime="
+				+ arrTime + ", depTime=" + depTime + "]";
+	}
+}

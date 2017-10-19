@@ -1,0 +1,63 @@
+<body lang="${currentLocaleLocale.language}">
+<span class="top" style="font-size: 40px; cursor: pointer" onclick="openNav()">&#9776;
+		</span>
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<div class="top">
+				<div class="lang">
+					<c:if test="${fn:length(localeList) != 0}">
+						<c:forEach items="${localeList}" var="localeItem">
+							<c:url var="pageUrl" value="">
+								<c:forEach items="${param}" var="entry">
+									<c:if test="${entry.key != 'lang'}">
+										<c:param name="${entry.key}" value="${entry.value}" />
+									</c:if>
+								</c:forEach>
+								<c:param name="lang" value="${localeItem}" />
+							</c:url>
+
+							<fmt:message key="${localeItem}" var="loc" />
+							<c:choose>
+								<c:when
+									test="${fn:toLowerCase(sessionScope.currentLocaleLocale) == fn:toLowerCase(localeItem)}">
+								</c:when>
+								<c:otherwise>
+								</c:otherwise>
+							</c:choose>
+							<a href="${pageUrl}" class="cur">${loc} </a>
+						</c:forEach>
+					</c:if>
+				</div>
+			</div>
+			<br>
+			<a href="controller?command=indexView"><fmt:message
+					key="label.home" /></a>
+			<c:if test="${currentUser.role.id==1}">
+				<a href="controller?command=adminView"><fmt:message
+						key="label.admin_page" /></a>
+			</c:if>
+			<c:if test="${currentUser.role.id==0}">
+				<a href="controller?command=userProfileView"> <fmt:message
+						key="label.profile" /></a>
+			</c:if>
+		</div>
+		<div class="pagealign">
+		<a class="logo"></a>
+	<div class="auth">
+		<c:choose>
+			<c:when test="${not empty sessionScope.currentUser}">
+			<div class= "fine-button default">
+				<a href="controller?command=logout"> <fmt:message
+						key="action.log_out" /></a>
+						</div>
+			</c:when>
+			<c:otherwise>
+			<div class= "fine-button default">
+				<a href="controller?command=signUpView"> <fmt:message
+						key="label.sign_up" /></a><br></div>
+				<div class= "fine-button default"><a href="controller?command=loginView"> <fmt:message
+						key="label.login" />
+				</a></div>
+			</c:otherwise>
+		</c:choose>
+</div>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource name="jdbc/SummaryTask4" auth="Container" type="javax.sql.DataSource"
+              username="root"
+              password="root"
+              driverClassName="com.mysql.jdbc.Driver"
+              maxActive="100" maxIdle="30" maxWait="10000"
+			defaultAutoCommit="false"
+			defaultTransactionIsolation="READ_COMMITTED"
+              url="jdbc:mysql://localhost/st4" />
+</Context>
